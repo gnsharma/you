@@ -40,7 +40,7 @@ export function EndingSection({ section }: SectionProps<"ending">) {
             className={cx(
               "mt-20 inline-block text-caption uppercase tracking-[0.22em] transition-colors duration-500",
               invert
-                ? "text-bg/40 hover:text-bg"
+                ? "text-bg/70 hover:text-bg"
                 : "text-secondary hover:text-primary",
             )}
           >

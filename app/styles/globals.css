@@ -63,6 +63,13 @@
     background-color: color-mix(in srgb, var(--color-accent) 28%, transparent);
     color: var(--color-primary);
   }
+
+  /* Visible keyboard focus for every interactive element. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
 }
 
 /*
