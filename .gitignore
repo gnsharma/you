@@ -12,6 +12,10 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 
+# Local dev/verification helpers (not part of the deliverable)
+/shoot.mjs
+/shots
+
 # Logs
 npm-debug.log*
 yarn-debug.log*

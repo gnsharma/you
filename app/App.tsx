@@ -1,12 +1,25 @@
 import { Routes, Route } from "react-router-dom";
 import Story from "./routes/Story";
 import Vrishti from "./routes/Vrishti";
+import { SmoothScroll } from "./components/SmoothScroll";
+import { AmbientBackground } from "./components/AmbientBackground";
+import { CursorGlow } from "./components/CursorGlow";
+import { ProgressBar } from "./components/ProgressBar";
+import { LoadingSequence } from "./components/LoadingSequence";
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Story />} />
-      <Route path="/vrishti" element={<Vrishti />} />
-    </Routes>
+    <SmoothScroll>
+      <AmbientBackground />
+      <CursorGlow />
+      <ProgressBar />
+
+      <Routes>
+        <Route path="/" element={<Story />} />
+        <Route path="/vrishti" element={<Vrishti />} />
+      </Routes>
+
+      <LoadingSequence />
+    </SmoothScroll>
   );
 }
