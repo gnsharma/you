@@ -1,19 +1,44 @@
-import { Reveal } from "~/components/Reveal";
-import { SectionShell } from "~/components/SectionShell";
+import { AnimatePresence, motion } from "framer-motion";
+import { ContinueIndicator } from "~/components/ContinueIndicator";
+import { useTypewriter } from "~/hooks/useTypewriter";
 import type { SectionProps } from "./types";
 
 /**
- * Opening on a black screen. The full typewriter (type → delete → type) is
- * wired in a later pass; for now it fades in the final phrase so the flow
- * reads end to end.
+ * The opening on a black screen: a typewriter types the first phrase, deletes
+ * it, then types "this is ours." A faint scroll cue appears once it settles.
  */
 export function OpeningSection({ section }: SectionProps<"opening">) {
-  const last = section.phrases.at(-1)?.text ?? "";
+  const { text, done } = useTypewriter(section.phrases);
+  const fullText = section.phrases.map((p) => p.text).join(" ");
+
   return (
-    <SectionShell id={section.id} contentClassName="text-center">
-      <Reveal kind="fade" duration={1.4}>
-        <p className="text-lead text-primary">{last}</p>
-      </Reveal>
-    </SectionShell>
+    <section
+      id={section.id}
+      className="relative flex min-h-dvh flex-col items-center justify-center px-6 text-center"
+    >
+      {/* Spoken once, fully, for assistive tech. */}
+      <p className="sr-only">{fullText}</p>
+
+      <p aria-hidden className="text-lead text-primary">
+        <span className="whitespace-pre-line">{text}</span>
+        <span
+          className="ml-1 inline-block h-[1.05em] w-[2px] translate-y-[3px] bg-accent"
+          style={done ? { opacity: 0 } : { animation: "caret-blink 1.1s steps(1) infinite" }}
+        />
+      </p>
+
+      <AnimatePresence>
+        {done ? (
+          <motion.div
+            key="cue"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2 }}
+          >
+            <ContinueIndicator />
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </section>
   );
 }

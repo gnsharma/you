@@ -1,4 +1,7 @@
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { Confetti } from "~/components/Confetti";
 import { StaggerLines } from "~/components/StaggerLines";
 import { cx } from "~/utils/cx";
 import type { SectionProps } from "./types";
@@ -10,6 +13,8 @@ import type { SectionProps } from "./types";
  */
 export function EndingSection({ section }: SectionProps<"ending">) {
   const invert = section.invert ?? false;
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.6 });
 
   return (
     <section
@@ -19,7 +24,9 @@ export function EndingSection({ section }: SectionProps<"ending">) {
         invert && "bg-primary text-bg",
       )}
     >
-      <div className="mx-auto w-full max-w-readable">
+      <Confetti active={inView} />
+
+      <div ref={ref} className="mx-auto w-full max-w-readable">
         <StaggerLines
           lines={section.body}
           className="space-y-3"
