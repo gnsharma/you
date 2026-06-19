@@ -6,6 +6,7 @@ import { AmbientBackground } from "./components/AmbientBackground";
 import { CursorGlow } from "./components/CursorGlow";
 import { ProgressBar } from "./components/ProgressBar";
 import { LoadingSequence } from "./components/LoadingSequence";
+import { MusicToggle } from "./components/MusicToggle";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/vrishti" element={<Vrishti />} />
       </Routes>
 
+      <MusicToggle />
       <LoadingSequence />
     </SmoothScroll>
   );

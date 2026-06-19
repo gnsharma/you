@@ -17,7 +17,7 @@ export function CardsSection({ section }: SectionProps<"cards">) {
       <StaggerLines
         lines={section.cards}
         className="space-y-4"
-        lineClassName="rounded-2xl border border-white/10 bg-surface/50 px-7 py-6 text-body text-primary/90"
+        lineClassName="rounded-2xl border border-white/10 bg-white/[0.03] px-7 py-6 text-body text-primary/90 transition-colors duration-500 hover:border-white/20"
       />
     </SectionShell>
   );

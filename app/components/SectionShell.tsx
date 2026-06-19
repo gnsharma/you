@@ -7,7 +7,9 @@ interface SectionShellProps {
   eyebrow?: string;
   children: ReactNode;
   className?: string;
-  /** Overrides the inner content wrapper (default: centered readable column). */
+  /** Max-width of the content column. Headings go wider than body copy. */
+  contentWidth?: string;
+  /** Extra classes for the content wrapper (e.g. alignment). */
   contentClassName?: string;
   /** Fill at least one viewport height and vertically center (default true). */
   full?: boolean;
@@ -23,6 +25,7 @@ export function SectionShell({
   eyebrow,
   children,
   className,
+  contentWidth = "max-w-readable",
   contentClassName,
   full = true,
 }: SectionShellProps) {
@@ -35,7 +38,7 @@ export function SectionShell({
         className,
       )}
     >
-      <div className={cx("mx-auto w-full max-w-readable", contentClassName)}>
+      <div className={cx("mx-auto w-full", contentWidth, contentClassName)}>
         {eyebrow ? <Eyebrow className="mb-10">{eyebrow}</Eyebrow> : null}
         {children}
       </div>

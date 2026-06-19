@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Placeholder">
+  <defs>
+    <radialGradient id="ground" cx="34%" cy="32%" r="90%">
+      <stop offset="0%" stop-color="#16161b"/>
+      <stop offset="55%" stop-color="#0c0c0e"/>
+      <stop offset="100%" stop-color="#070708"/>
+    </radialGradient>
+    <radialGradient id="bloom" cx="30%" cy="30%" r="42%">
+      <stop offset="0%" stop-color="#f4c2c2" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#f4c2c2" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#ground)"/>
+  <rect width="1600" height="1000" fill="url(#bloom)"/>
+  <rect width="1600" height="1000" filter="url(#grain)" opacity="0.045"/>
+</svg>
