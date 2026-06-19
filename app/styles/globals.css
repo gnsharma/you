@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens — the single source of truth for the visual language.
+ * Defined in @theme so Tailwind generates matching utilities
+ * (bg-bg, text-secondary, text-display, max-w-readable, ...).
+ */
+@theme {
+  /* Palette */
+  --color-bg: #080808;
+  --color-surface: #101010;
+  --color-primary: #fafafa;
+  --color-secondary: #a0a0a0;
+  --color-muted: #6b6b6b;
+  --color-accent: #f4c2c2;
+
+  /* Type families */
+  --font-sans: "Geist Variable", "Geist", "Inter Variable", "Inter",
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Type scale */
+  --text-caption: 0.8125rem; /* 13px */
+  --text-caption--line-height: 1.5;
+  --text-caption--letter-spacing: 0.02em;
+
+  --text-eyebrow: 0.8125rem; /* 13px, used uppercased */
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.22em;
+
+  --text-body: 1.375rem; /* 22px */
+  --text-body--line-height: 1.7;
+
+  --text-lead: 1.75rem; /* 28px */
+  --text-lead--line-height: 1.5;
+
+  --text-display: clamp(2.75rem, 11vw, 7.5rem); /* 44px -> 120px */
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.025em;
+
+  /* Reading measure */
+  --container-readable: 720px;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-accent) 28%, transparent);
+    color: var(--color-primary);
+  }
+}
+
+/*
+ * Reduced-motion is primarily handled in JS via Framer Motion's
+ * useReducedMotion(). This is a CSS safety net for native scroll/anchor.
+ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
