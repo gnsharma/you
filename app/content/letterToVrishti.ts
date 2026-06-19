@@ -37,4 +37,11 @@ export const vrishtiSections: StorySection[] = [
     signature: letterToVrishti.signature,
     animation: { enter: "fade" },
   },
+  {
+    id: "vrishti-close",
+    type: "ending",
+    body: ["You are loved beyond measure.", "Now, and always."],
+    oneMoreThing: { label: "Back to the beginning", to: "/" },
+    animation: { enter: "fade" },
+  },
 ];
