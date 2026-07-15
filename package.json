@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "^5.2.9",
-    "@fontsource-variable/inter": "^5.2.8",
     "framer-motion": "^12.40.0",
     "lenis": "^1.3.23",
     "lucide-react": "^1.21.0",
