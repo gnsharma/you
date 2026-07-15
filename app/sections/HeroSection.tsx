@@ -21,7 +21,7 @@ export function HeroSection({ section }: SectionProps<"hero">) {
           </Reveal>
         ) : null}
         <Reveal kind="fade" duration={1.2}>
-          <h1 className="whitespace-pre-line text-balance font-medium leading-[1.05] tracking-[-0.025em] text-[clamp(2.75rem,7vw,5rem)]">
+          <h1 className="whitespace-pre-line text-balance font-serif font-medium leading-[1.08] tracking-[-0.01em] text-[clamp(2.75rem,7vw,5rem)]">
             {section.title}
           </h1>
         </Reveal>

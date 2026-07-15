@@ -16,9 +16,15 @@ export function LoadingSequence() {
     const minimum = new Promise<void>((resolve) =>
       setTimeout(resolve, reduced ? 150 : 850),
     );
-    const fonts = document.fonts ? document.fonts.ready : Promise.resolve();
+    // Wait for fonts, but never let a slow/hanging font load trap the veil:
+    // cap the wait so the story always reveals within a couple of seconds.
+    const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+    const fontsCapped = Promise.race([
+      fontsReady,
+      new Promise<void>((resolve) => setTimeout(resolve, 2500)),
+    ]);
 
-    Promise.all([fonts, minimum]).then(() => {
+    Promise.all([fontsCapped, minimum]).then(() => {
       if (!cancelled) setDone(true);
     });
 

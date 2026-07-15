@@ -9,7 +9,7 @@ export function CardsSection({ section }: SectionProps<"cards">) {
     <SectionShell id={section.id} contentClassName="text-center">
       {section.title ? (
         <Reveal kind="fade">
-          <h2 className="mb-14 text-3xl font-medium tracking-tight sm:text-4xl">
+          <h2 className="mb-14 font-serif text-3xl font-medium tracking-[-0.005em] sm:text-4xl">
             {section.title}
           </h2>
         </Reveal>

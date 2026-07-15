@@ -3,24 +3,22 @@ import type { Photo } from "./types";
 /**
  * Photo manifest. Sections reference photos by `id`, never by path, so
  * swapping in real photos means dropping files into /public/photos and
- * editing only this file.
- *
- * Placeholder assets live at the listed paths until real photos arrive;
- * keep the aspect ratio accurate to avoid layout shift when they do.
+ * editing only this file. Keep `aspect` accurate to the file to avoid
+ * layout shift.
  */
 export const photos: Photo[] = [
   {
     id: "before",
-    src: "/photos/before.svg",
-    alt: "Placeholder — a quiet moment from before parenthood",
+    src: "/photos/before.jpeg",
+    alt: "A quiet moment before parenthood — a hand resting where Vrishti was growing",
     caption: "Before we became parents,\nwe were simply dreaming.",
-    aspect: "landscape",
+    aspect: "portrait",
     order: 1,
   },
   {
     id: "becoming",
-    src: "/photos/becoming.svg",
-    alt: "Placeholder — Anika holding Vrishti for the first time",
+    src: "/photos/becoming.jpeg",
+    alt: "Anika holding Vrishti for the first time",
     aspect: "portrait",
     order: 2,
   },

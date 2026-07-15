@@ -2,8 +2,8 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import "@fontsource-variable/geist/wght.css";
 import "@fontsource-variable/inter/wght.css";
+import "@fontsource-variable/fraunces/opsz.css";
 import "./styles/globals.css";
 
 const container = document.getElementById("root");

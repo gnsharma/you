@@ -15,7 +15,7 @@ export function TextSection({ section }: SectionProps<"text">) {
     >
       {section.title ? (
         <Reveal kind="fade">
-          <h2 className="mb-12 text-3xl font-medium tracking-tight sm:text-4xl">
+          <h2 className="mb-12 font-serif text-3xl font-medium tracking-[-0.005em] sm:text-4xl">
             {section.title}
           </h2>
         </Reveal>
